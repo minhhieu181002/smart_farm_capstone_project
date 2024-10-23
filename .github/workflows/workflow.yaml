@@ -120,6 +120,9 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
+      - name: Make setup.sh executable
+        run: chmod +x ./setup.sh
+        shell: bash
       - run: ./setup.sh -t -p -f pubspec.yaml   | grep '3.3.10'
         shell: bash
       - run: ./setup.sh -t -p                        | grep 'stable'
