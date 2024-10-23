@@ -123,7 +123,7 @@ jobs:
       - name: Make setup.sh executable
         run: chmod +x ./setup.sh
         shell: bash
-      - run: ./setup.sh -t -p -f pubspec.yaml   | grep '3.3.10'
+      - run: ./setup.sh -t -p -f pubspec.yaml   | grep '3.24.3'
         shell: bash
       - run: ./setup.sh -t -p                        | grep 'stable'
         shell: bash
@@ -137,7 +137,7 @@ jobs:
         shell: bash
       - run: ./setup.sh -t -p beta                   | grep '3.9.0-0.1.pre'
         shell: bash
-      - run: ./setup.sh -t -p -n 3.3.10 stable       | grep '3.3.10'
+      - run: ./setup.sh -t -p -n 3.24.3 stable       | grep '3.24.3'
         shell: bash
       - run: ./setup.sh -t -p -n 3.3.1 stable        | grep '3.3.1'
         shell: bash
