@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class TColors {
   //? App theme colors
   static const Color primary = Color(0xFF4b68ff);
-  static const Color secondary = Color(0xFFFFE24B);
-  static const Color accent = Color(0xFFb0c7ff);
+  static const Color secondary1 = Color(0xFFD9F3D6);
+  static const Color secondary2 = Color(0xFFF5EDD2);
+  static const Color secondary3 = Color(0xFFD2EFF5);
+  static const Color secondary4 = Color(0xFFEFF5D1);
+  static const Color accent = Color(0xFF37804E);
+
 
   //? gradient colors
   static const Gradient linerGradient = LinearGradient(

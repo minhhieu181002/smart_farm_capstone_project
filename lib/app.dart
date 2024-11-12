@@ -1,15 +1,10 @@
 
-
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:greenfarm_capstone_project/utils/constants/text_strings.dart';
 import 'package:greenfarm_capstone_project/utils/theme/theme.dart';
 
 import 'features/authentication/screens/onboarding/onboarding.dart';
-import 'main.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,7 +18,7 @@ class MyApp extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
 
 
-      home:OnBoardingScreen(),
+      home:const OnBoardingScreen(),
     );
   }
 }

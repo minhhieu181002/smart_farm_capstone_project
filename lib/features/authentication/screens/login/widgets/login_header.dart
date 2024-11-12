@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 
 
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
@@ -18,8 +16,8 @@ class LoginHeader extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return Container(
-      padding: EdgeInsets.all(TSizes.defaultSpace),
-      margin: EdgeInsets.only(top: TSizes.lg),
+      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      margin: const EdgeInsets.only(top: TSizes.lg),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

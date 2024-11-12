@@ -1,22 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:greenfarm_capstone_project/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:greenfarm_capstone_project/navigation_menu.dart';
-import 'package:greenfarm_capstone_project/utils/constants/enums.dart';
 import 'package:greenfarm_capstone_project/utils/constants/image_strings.dart';
 import 'package:greenfarm_capstone_project/utils/constants/sizes.dart';
 import 'package:greenfarm_capstone_project/utils/helpers/helper_functions.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/styles/spacing_styles.dart';
 import '../../../../common/widgets/container/rounded_container.dart';
-import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/text_strings.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +28,14 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Logo, Title , subtitle
-                  LoginHeader(),
+                  const LoginHeader(),
 
-                  SizedBox(height: TSizes.spaceBtwSections * 3),
+                  const SizedBox(height: TSizes.spaceBtwSections * 3),
 
                   Padding(
-                    padding: EdgeInsets.all(TSizes.defaultSpace),
+                    padding: const EdgeInsets.all(TSizes.defaultSpace),
                     child: RoundedContainer(
-                      margin: EdgeInsets.only(top: TSizes.lg, left: TSizes.sm),
+                      margin: const EdgeInsets.only(top: TSizes.lg, left: TSizes.sm),
                       height: THelperFunctions.screenHeight() * 0.4,
                       width: THelperFunctions.screenWidth() * 0.8,
                       showBorder: true,
@@ -51,8 +46,8 @@ class LoginScreen extends StatelessWidget {
                           Container(
                             width: 100,
                             height: 100,
-                            margin: EdgeInsets.only(top: TSizes.sm),
-                            padding: EdgeInsets.all(TSizes.sm),
+                            margin: const EdgeInsets.only(top: TSizes.sm),
+                            padding: const EdgeInsets.all(TSizes.sm),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(100),
                               border: Border.all(color: Colors.grey),
@@ -63,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                           // Text
-                          SizedBox(height: TSizes.spaceBtwSections),
+                          const SizedBox(height: TSizes.spaceBtwSections),
                           Text(
                             'Login',
                             style: Theme.of(context)
@@ -71,12 +66,12 @@ class LoginScreen extends StatelessWidget {
                                 .headlineMedium!
                                 .copyWith(color: Colors.green),
                           ),
-                          SizedBox(height: TSizes.spaceBtwSections * 2),
+                          const SizedBox(height: TSizes.spaceBtwSections * 2),
 
                           // Login bar
                           Padding(
                             padding:
-                            EdgeInsets.only(left: TSizes.sm, right: TSizes.sm),
+                            const EdgeInsets.only(left: TSizes.sm, right: TSizes.sm),
                             child: SizedBox(
                               width: double.infinity,
                               child: OutlinedButton.icon(
@@ -86,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                                   height: TSizes.iconLg,
                                   width: TSizes.iconLg,
                                 ),
-                                label: Text(TTexts.signIn),
+                                label: const Text(TTexts.signIn),
                               ),
                             ),
                           ),

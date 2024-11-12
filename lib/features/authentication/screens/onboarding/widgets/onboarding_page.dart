@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 
@@ -23,7 +22,7 @@ class OnboardingPage extends StatelessWidget {
       child: Column(
         children: [
           // GREENFARM Logo Image
-          Image(image: AssetImage(TImages.greenFarmLogo)),
+          const Image(image: AssetImage(TImages.greenFarmLogo)),
 
           // Space between logo and title
            // Adjust as needed
