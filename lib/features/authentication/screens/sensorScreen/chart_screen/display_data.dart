@@ -3,9 +3,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'widget/temperature_chart.dart';
 import 'widget/water_level_chart.dart';
 import 'widget/soil_nutrient_chart.dart';
-import 'widget/nutrient_legend.dart';
+import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 
-class DisplayDataScreen extends StatefulWidget {
+class DisplayDataScreen extends StatelessWidget {
   final String title;
   final String description;
   final List<FlSpot> temperatureData;
@@ -17,6 +17,9 @@ class DisplayDataScreen extends StatefulWidget {
   final List<String> recommendations;
   final String lastUpdated;
   final String chartType;
+
+  //final String selectedFilter; // Pass in the filter value
+  //final ValueChanged<String> onFilterChanged; // Callback for filter change
 
   const DisplayDataScreen({
     Key? key,
@@ -31,74 +34,58 @@ class DisplayDataScreen extends StatefulWidget {
     required this.recommendations,
     required this.lastUpdated,
     required this.chartType,
+    //required this.selectedFilter, // Add selected filter as parameter
+    //required this.onFilterChanged, // Add callback as parameter
   }) : super(key: key);
-
-  @override
-  _DisplayDataScreenState createState() => _DisplayDataScreenState();
-}
-
-class _DisplayDataScreenState extends State<DisplayDataScreen> {
-  String selectedFilter = 'Today';
-
-  void _loadChartData() {
-    print('Loading data for $selectedFilter');
-  }
 
   @override
   Widget build(BuildContext context) {
     Widget chartWidget;
-    if (widget.chartType == 'temperature') {
+    if (chartType == 'temperature') {
       chartWidget = TemperatureChart(
-        temperatureData: widget.temperatureData,
-        selectedFilter: selectedFilter,
-        onFilterChanged: (filter) {
-          setState(() {
-            selectedFilter = filter;
-            _loadChartData();
-          });
-        },
+        temperatureData: temperatureData,
+        selectedFilter: 'Today',
+        //onFilterChanged: onFilterChanged,
       );
-    } else if (widget.chartType == 'waterLevel') {
+    } else if (chartType == 'waterLevel') {
       chartWidget = WaterLevelChart(
-        waterLevelData: widget.waterLevelData,
-        selectedFilter: selectedFilter,
-        onFilterChanged: (filter) {
-          setState(() {
-            selectedFilter = filter;
-            _loadChartData();
-          });
-        },
+        waterLevelData: waterLevelData,
+        selectedFilter: 'Today',
+        //onFilterChanged: onFilterChanged,
       );
-    } else if (widget.chartType == 'soilNutrients') {
+    } else if (chartType == 'soilNutrients') {
       chartWidget = SoilNutrientsChart(
-        nitrogenData: widget.nitrogenData,
-        phosphorusData: widget.phosphorusData,
-        kaliData: widget.kaliData,
-        selectedFilter: selectedFilter,
-        onFilterChanged: (filter) {
-          setState(() {
-            selectedFilter = filter;
-            _loadChartData();
-          });
-        },
+        nitrogenData: nitrogenData,
+        phosphorusData: phosphorusData,
+        kaliData: kaliData,
+        selectedFilter: 'Today',
+        //onFilterChanged: onFilterChanged,
       );
     } else {
-      chartWidget = Center(child: Text("No data available for this chart type."));
+      chartWidget =
+          Center(child: Text("No data available for this chart type."));
     }
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.title, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.green)),
+            Text(title, style: Theme
+                .of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: TColors.accent)),
             const SizedBox(height: 8),
-            Text(widget.description, style: Theme.of(context).textTheme.bodyMedium),
+            Text(description, style: Theme
+                .of(context)
+                .textTheme
+                .bodyMedium),
             const SizedBox(height: 20),
             chartWidget,
             const SizedBox(height: 20),
@@ -106,7 +93,10 @@ class _DisplayDataScreenState extends State<DisplayDataScreen> {
             const SizedBox(height: 20),
             _buildRecommendations(),
             const SizedBox(height: 20),
-            Text("Sensor last updated: ${widget.lastUpdated}", style: Theme.of(context).textTheme.bodySmall),
+            Text("Sensor last updated: $lastUpdated", style: Theme
+                .of(context)
+                .textTheme
+                .bodySmall),
           ],
         ),
       ),
@@ -114,28 +104,48 @@ class _DisplayDataScreenState extends State<DisplayDataScreen> {
   }
 
   Widget _buildInsights() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Key Insight", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
-        ...widget.insights.map((insight) => Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4.0),
-          child: Text("• $insight"),
-        )),
-      ],
+    return Builder(
+      builder: (BuildContext context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Key Insight",
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            ...insights.map((insight) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Text("• $insight"),
+            )),
+          ],
+        );
+      },
     );
   }
 
+
   Widget _buildRecommendations() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Recommendation", style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
-        ...widget.recommendations.map((recommendation) => Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4.0),
-          child: Text("• $recommendation"),
-        )),
-      ],
+    return Builder(
+      builder: (BuildContext context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Recommendation",
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headlineMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
+            ),
+            ...recommendations.map((recommendation) =>
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  child: Text("• $recommendation"),
+                )),
+          ],
+        );
+      },
     );
   }
 }

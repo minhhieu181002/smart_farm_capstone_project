@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:greenfarm_capstone_project/utils/helpers/chart_helper.dart';
+import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 import 'filter_row.dart';
 
 class TemperatureChart extends StatelessWidget {
   final List<FlSpot> temperatureData;
   final String selectedFilter;
-  final Function(String) onFilterChanged;
+  //final Function(String) onFilterChanged;
 
   const TemperatureChart({
     Key? key,
     required this.temperatureData,
     required this.selectedFilter,
-    required this.onFilterChanged,
+    //required this.onFilterChanged,
   }) : super(key: key);
 
   @override
@@ -21,13 +22,13 @@ class TemperatureChart extends StatelessWidget {
       height: 250,
       padding: const EdgeInsets.all(32.0),
       decoration: BoxDecoration(
-        color: Colors.orange[100],
+        color: TColors.secondary2,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FilterRow(selectedFilter: selectedFilter, onFilterChanged: onFilterChanged),
+          FilterRow(selectedFilter: selectedFilter),
           const SizedBox(height: 32),
           Expanded(
             child: LineChart(
@@ -36,7 +37,7 @@ class TemperatureChart extends StatelessWidget {
                   LineChartBarData(
                     spots: temperatureData,
                     isCurved: true,
-                    color: Colors.orange,
+                    color: TColors.lineOrange,
                     barWidth: 2,
                     dotData: FlDotData(show: false),
                   ),

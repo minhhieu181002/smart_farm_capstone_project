@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 
 class FilterRow extends StatelessWidget {
   final String selectedFilter;
-  final Function(String) onFilterChanged;
+  //final Function(String) onFilterChanged;
 
   const FilterRow({
     Key? key,
     required this.selectedFilter,
-    required this.onFilterChanged,
+    //required this.onFilterChanged,
   }) : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class FilterRow extends StatelessWidget {
       children: ['Today', 'Week', 'Month', 'Year'].map((filter) {
         bool isSelected = selectedFilter == filter;
         return GestureDetector(
-          onTap: () => onFilterChanged(filter),
+          //onTap: () => onFilterChanged(filter),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
             child: Column(
@@ -26,7 +27,7 @@ class FilterRow extends StatelessWidget {
                   filter,
                   style: TextStyle(
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                    color: isSelected ? Colors.green : Colors.black,
+                    color: isSelected ? TColors.accent : Colors.black,
                     fontSize: 10,
                   ),
                 ),
@@ -35,7 +36,7 @@ class FilterRow extends StatelessWidget {
                     margin: const EdgeInsets.only(top: 4.0),
                     height: 2,
                     width: 40,
-                    color: Colors.green,
+                    color: TColors.accent,
                   ),
               ],
             ),

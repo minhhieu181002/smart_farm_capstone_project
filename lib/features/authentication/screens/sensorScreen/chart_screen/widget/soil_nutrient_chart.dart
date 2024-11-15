@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:greenfarm_capstone_project/utils/helpers/chart_helper.dart';
+import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 import 'filter_row.dart';
 import 'nutrient_legend.dart';
 
@@ -9,7 +10,7 @@ class SoilNutrientsChart extends StatelessWidget {
   final List<FlSpot> phosphorusData;
   final List<FlSpot> kaliData;
   final String selectedFilter;
-  final Function(String) onFilterChanged;
+  //final Function(String) onFilterChanged;
 
   const SoilNutrientsChart({
     Key? key,
@@ -17,7 +18,7 @@ class SoilNutrientsChart extends StatelessWidget {
     required this.phosphorusData,
     required this.kaliData,
     required this.selectedFilter,
-    required this.onFilterChanged,
+    //required this.onFilterChanged,
   }) : super(key: key);
 
   @override
@@ -26,7 +27,7 @@ class SoilNutrientsChart extends StatelessWidget {
       height: 250,
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.green[100],
+        color: TColors.secondary4,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -35,14 +36,17 @@ class SoilNutrientsChart extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              NutrientLegend(
+              Container(
+                margin: const EdgeInsets.only(left: 32.0),
+                child: NutrientLegend(
                 nutrientColors: {
-                  'Nitrogen': Colors.green,
-                  'Phosphorus': Colors.orange,
-                  'Kali': Colors.red,
+                  'Nitrogen': TColors.lineBlue,
+                  'Phosphorus': TColors.lineOrange,
+                  'Kali': TColors.lineGreen,
                 },
               ),
-              FilterRow(selectedFilter: selectedFilter, onFilterChanged: onFilterChanged),
+              ),
+              FilterRow(selectedFilter: selectedFilter),
             ],
           ),
           const SizedBox(height: 16),
@@ -53,21 +57,21 @@ class SoilNutrientsChart extends StatelessWidget {
                   LineChartBarData(
                     spots: nitrogenData,
                     isCurved: true,
-                    color: Colors.green,
+                    color: TColors.lineBlue,
                     barWidth: 2,
                     dotData: FlDotData(show: false),
                   ),
                   LineChartBarData(
                     spots: phosphorusData,
                     isCurved: true,
-                    color: Colors.orange,
+                    color: TColors.lineOrange,
                     barWidth: 2,
                     dotData: FlDotData(show: false),
                   ),
                   LineChartBarData(
                     spots: kaliData,
                     isCurved: true,
-                    color: Colors.red,
+                    color: TColors.lineGreen,
                     barWidth: 2,
                     dotData: FlDotData(show: false),
                   ),

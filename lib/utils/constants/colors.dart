@@ -8,8 +8,10 @@ class TColors {
   static const Color secondary3 = Color(0xFFD2EFF5);
   static const Color secondary4 = Color(0xFFEFF5D1);
   static const Color accent = Color(0xFF37804E);
-
-
+  static const Color lineBlue = Color(0xFF00D1FC);
+  static const Color lineOrange = Color(0xFFFFA500);
+  static const Color lineGreen = Color(0xFF37804E);
+  static const Color lineBlueWater = Color(0xFF0277E3);
   //? gradient colors
   static const Gradient linerGradient = LinearGradient(
     begin: Alignment(0.0, 0.0),
@@ -58,6 +60,6 @@ class TColors {
   static const Color softGrey = Color(0xFFF4F4F4);
   static const Color lightGrey = Color(0xFFF9F9F9);
   static const Color white = Color(0xFFFFFFFF);
-  
+
   static const Color titleColor=Color(0xFF8B4513);
 }
