@@ -5,6 +5,7 @@ import 'package:greenfarm_capstone_project/utils/constants/image_strings.dart';
 import 'package:greenfarm_capstone_project/utils/helpers/helper_functions.dart';
 import '../features/authentication/screens/sensorScreen/sensor_screen.dart';
 import '../features/authentication/screens/addNewTree/homeScreen.dart';
+import '../features/authentication/screens/irrigation/irrigationScreen.dart';
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
 
@@ -54,7 +55,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-      const SensorScreen(), HomeScreen(), Container(), Container(),
+      const SensorScreen(), HomeScreen(), IrrigationScreen(), Container(),
 
   ];
 }

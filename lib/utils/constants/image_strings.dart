@@ -2,6 +2,19 @@
 
 /// This class contains all the App Images in String formats.
 class TImages {
+
+  // -- Tree
+  static const String mangoTree = "assets/images/tree_images/mango.png";
+  static const String duagangTree = "assets/images/tree_images/duagang.png";
+  static const String chiliTree = "assets/images/tree_images/chili.png";
+  static const String pineappleTree = "assets/images/tree_images/pineapple.png";
+
+  // -- Status of water level
+  static const String waterLevelLow = "assets/icons/waterLevel/water_level_low.svg";
+  static const String waterLevelMedium = "assets/icons/waterLevel/water_level_medium.svg";
+  static const String waterLevelHigh = "assets/icons/waterLevel/water_level_high.svg";
+  static const String waterLevelFull = "assets/icons/waterLevel/water_level_full.svg";
+
   // -- App Logos
   static const String darkAppLogo =
       "assets/logos/t-store-splash-logo-black.png";

@@ -22,7 +22,7 @@ class NetworkManager extends GetxController {
     super.onInit();
     //? Listen to the connectivity changes
     _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus as void Function(List<ConnectivityResult> event)?) as StreamSubscription<ConnectivityResult>;
     //? and update the isConnected variable
   }
 
