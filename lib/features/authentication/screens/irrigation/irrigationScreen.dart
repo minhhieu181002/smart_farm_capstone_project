@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
 import 'package:greenfarm_capstone_project/utils/constants/image_strings.dart';
 import 'statusOfIrrigation/widget/irrigationCard.dart';
-
+import 'history/historyScreen.dart';
 class IrrigationScreen extends StatelessWidget {
   const IrrigationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DateTime historyDate = DateTime.now();
     return DefaultTabController(
       length: 2, // Two tabs: Status and History
       child: Scaffold(
@@ -57,12 +58,7 @@ class IrrigationScreen extends StatelessWidget {
                   ),
 
                   // History Tab (can be populated later)
-                  const Center(
-                    child: Text(
-                      "History Page",
-                      style: TextStyle(fontSize: 16, color: Colors.green), // Text color
-                    ),
-                  ),
+                  HistoryScreen(date: historyDate),
                 ],
               ),
             ),
