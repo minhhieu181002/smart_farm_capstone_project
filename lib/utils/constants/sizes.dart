@@ -16,6 +16,7 @@ class TSizes {
   static const double iconLg = 32.0;
 
   //? Font sizes
+  static const double fontSizeXs = 10.0;
   static const double fontSizeSm = 14.0;
   static const double fontSizeMd = 16.0;
   static const double fontSizeLg = 18.0;

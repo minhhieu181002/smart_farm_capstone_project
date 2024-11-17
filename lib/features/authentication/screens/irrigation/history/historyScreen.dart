@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'widget/historyCard.dart';
 import 'package:intl/intl.dart';
+import 'package:greenfarm_capstone_project/utils/constants/sizes.dart';
+import 'package:greenfarm_capstone_project/utils/constants/colors.dart';
+import 'package:greenfarm_capstone_project/utils/constants/image_strings.dart';
 
 class HistoryScreen extends StatelessWidget {
   final DateTime date; // Accepts date as a parameter
@@ -37,7 +40,7 @@ class HistoryScreen extends StatelessWidget {
                   return const HistoryCard(
                     time: "12:00 PM",
                     date: "April, 08", // Example date, you can make it dynamic
-                    imageUrl: 'https://via.placeholder.com/100',
+                    imageUrl: TImages.mangoTree,
                     scheduleName: "Mango schedule",
                     wateringCycle: "1 days",
                     wateringTime: "4 minutes",

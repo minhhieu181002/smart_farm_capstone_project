@@ -23,6 +23,7 @@ class HistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: TColors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: Padding(
@@ -55,8 +56,8 @@ class HistoryCard extends StatelessWidget {
             // Vertical Divider
             Container(
               height: 50,
-              width: 1,
-              color: TColors.primary,
+              width: 2,
+              color: TColors.accent,
             ),
             const SizedBox(width: 16),
 
